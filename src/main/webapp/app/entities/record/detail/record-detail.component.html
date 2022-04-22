@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="record">
+      <h2 data-cy="recordDetailsHeading"><span jhiTranslate="empsurApp.record.detail.title">Record</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ record.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.record.name">Name</span></dt>
+        <dd>
+          <span>{{ record.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.record.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="record.employee">
+            <a [routerLink]="['/employee', record.employee?.id, 'view']">{{ record.employee?.fullName }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/record', record.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

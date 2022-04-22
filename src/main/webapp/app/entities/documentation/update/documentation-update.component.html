@@ -1,0 +1,229 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-documentation-heading"
+        data-cy="DocumentationCreateUpdateHeading"
+        jhiTranslate="empsurApp.documentation.home.createOrEditLabel"
+      >
+        Create or edit a Documentation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'empsurApp.DocumentationStatus.null' | translate }}</option>
+            <option *ngFor="let documentationStatus of documentationStatusValues" [value]="documentationStatus">
+              {{ 'empsurApp.DocumentationStatus.' + documentationStatus | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.attachment" for="field_attachment">Attachment</label>
+          <div>
+            <div *ngIf="editForm.get('attachment')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('attachment')!.value, editForm.get('attachmentContentType')!.value)"
+                jhiTranslate="entity.action.open"
+                >open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('attachmentContentType')!.value }}, {{ byteSize(editForm.get('attachment')!.value) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ attachment: null }); editForm.patchValue({ attachmentContentType: null })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_attachment"
+              data-cy="attachment"
+              (change)="setFileData($event, 'attachment', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachment"
+            id="field_attachment"
+            data-cy="attachment"
+            formControlName="attachment"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachmentContentType"
+            id="field_attachmentContentType"
+            formControlName="attachmentContentType"
+          />
+          <div *ngIf="editForm.get('attachment')!.invalid && (editForm.get('attachment')!.dirty || editForm.get('attachment')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('attachment')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.issued" for="field_issued">Issued</label>
+          <div class="input-group">
+            <input
+              id="field_issued"
+              data-cy="issued"
+              type="text"
+              class="form-control"
+              name="issued"
+              ngbDatepicker
+              #issuedDp="ngbDatepicker"
+              formControlName="issued"
+            />
+            <button type="button" class="btn btn-secondary" (click)="issuedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.expiration" for="field_expiration">Expiration</label>
+          <div class="input-group">
+            <input
+              id="field_expiration"
+              data-cy="expiration"
+              type="text"
+              class="form-control"
+              name="expiration"
+              ngbDatepicker
+              #expirationDp="ngbDatepicker"
+              formControlName="expiration"
+            />
+            <button type="button" class="btn btn-secondary" (click)="expirationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.approval" for="field_approval">Approval</label>
+          <select class="form-control" name="approval" formControlName="approval" id="field_approval" data-cy="approval">
+            <option [ngValue]="null">{{ 'empsurApp.TaskStatus.null' | translate }}</option>
+            <option *ngFor="let taskStatus of taskStatusValues" [value]="taskStatus">
+              {{ 'empsurApp.TaskStatus.' + taskStatus | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.requested" for="field_requested">Requested</label>
+          <div class="input-group">
+            <input
+              id="field_requested"
+              data-cy="requested"
+              type="text"
+              class="form-control"
+              name="requested"
+              ngbDatepicker
+              #requestedDp="ngbDatepicker"
+              formControlName="requested"
+            />
+            <button type="button" class="btn btn-secondary" (click)="requestedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="empsurApp.documentation.tag" for="field_tags">Tag</label>
+          <select class="form-control" id="field_tags" data-cy="tag" multiple name="tags" formControlName="tags">
+            <option
+              [ngValue]="getSelectedTag(tagOption, editForm.get('tags')!.value)"
+              *ngFor="let tagOption of tagsSharedCollection; trackBy: trackTagById"
+            >
+              {{ tagOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.employee" for="field_employee">Employee</label>
+          <select class="form-control" id="field_employee" data-cy="employee" name="employee" formControlName="employee">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="employeeOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : employeeOption"
+              *ngFor="let employeeOption of employeesSharedCollection; trackBy: trackEmployeeById"
+            >
+              {{ employeeOption.fullName }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="empsurApp.documentation.record" for="field_record">Record</label>
+          <select class="form-control" id="field_record" data-cy="record" name="record" formControlName="record">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="recordOption.id === editForm.get('record')!.value?.id ? editForm.get('record')!.value : recordOption"
+              *ngFor="let recordOption of recordsSharedCollection; trackBy: trackRecordById"
+            >
+              {{ recordOption.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

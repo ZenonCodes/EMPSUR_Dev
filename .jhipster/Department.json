@@ -1,0 +1,36 @@
+{
+  "applications": ["empsur"],
+  "changelogDate": "20220422130112",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "department",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Department",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "fullName",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "department",
+      "relationshipName": "employee",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "department",
+      "relationshipName": "company",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

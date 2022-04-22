@@ -1,0 +1,34 @@
+{
+  "empsurApp": {
+    "documentation": {
+      "home": {
+        "title": "Documentations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Documentation",
+        "createOrEditLabel": "Create or edit a Documentation",
+        "notFound": "No Documentations found"
+      },
+      "created": "A new Documentation is created with identifier {{ param }}",
+      "updated": "A Documentation is updated with identifier {{ param }}",
+      "deleted": "A Documentation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Documentation {{ id }}?"
+      },
+      "detail": {
+        "title": "Documentation"
+      },
+      "id": "ID",
+      "status": "Status",
+      "name": "Name",
+      "attachment": "Attachment",
+      "description": "Description",
+      "issued": "Issued",
+      "expiration": "Expiration",
+      "approval": "Approval",
+      "requested": "Requested",
+      "tag": "Tag",
+      "employee": "Employee",
+      "record": "Record"
+    }
+  }
+}

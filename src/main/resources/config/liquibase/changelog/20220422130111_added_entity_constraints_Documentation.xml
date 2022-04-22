@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Documentation.
+    -->
+    <changeSet id="20220422130111-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="documentation_id"
+                                 baseTableName="rel_documentation__tag"
+                                 constraintName="fk_rel_documentation__tag__documentation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="documentation"/>
+
+        <addForeignKeyConstraint baseColumnNames="tag_id"
+                                 baseTableName="rel_documentation__tag"
+                                 constraintName="fk_rel_documentation__tag__tag_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tag"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="documentation"
+                                 constraintName="fk_documentation__employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="record_id"
+                                 baseTableName="documentation"
+                                 constraintName="fk_documentation__record_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="record"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,9 @@
+{
+  "empsurApp": {
+    "Status": {
+      "null": "",
+      "COMPLIANT": "COMPLIANT",
+      "NON_COMPLIANT": "NON_COMPLIANT"
+    }
+  }
+}

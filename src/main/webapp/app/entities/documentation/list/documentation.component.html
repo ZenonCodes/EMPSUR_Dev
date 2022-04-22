@@ -1,0 +1,152 @@
+<div>
+  <h2 id="page-heading" data-cy="DocumentationHeading">
+    <span jhiTranslate="empsurApp.documentation.home.title">Documentations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="empsurApp.documentation.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-documentation"
+        [routerLink]="['/documentation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="empsurApp.documentation.home.createLabel"> Create a new Documentation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="documentations?.length === 0">
+    <span jhiTranslate="empsurApp.documentation.home.notFound">No documentations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="documentations && documentations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="status">
+            <span jhiTranslate="empsurApp.documentation.status">Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <span jhiTranslate="empsurApp.documentation.name">Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="attachment">
+            <span jhiTranslate="empsurApp.documentation.attachment">Attachment</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="empsurApp.documentation.description">Description</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="issued">
+            <span jhiTranslate="empsurApp.documentation.issued">Issued</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="expiration">
+            <span jhiTranslate="empsurApp.documentation.expiration">Expiration</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="approval">
+            <span jhiTranslate="empsurApp.documentation.approval">Approval</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="requested">
+            <span jhiTranslate="empsurApp.documentation.requested">Requested</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="employee.fullName">
+            <span jhiTranslate="empsurApp.documentation.employee">Employee</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="record.name">
+            <span jhiTranslate="empsurApp.documentation.record">Record</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let documentation of documentations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/documentation', documentation.id, 'view']">{{ documentation.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'empsurApp.DocumentationStatus.' + documentation.status }}">{{ documentation.status }}</td>
+          <td>{{ documentation.name }}</td>
+          <td>
+            <a
+              *ngIf="documentation.attachment"
+              (click)="openFile(documentation.attachment, documentation.attachmentContentType)"
+              jhiTranslate="entity.action.open"
+              >open</a
+            >
+            <span *ngIf="documentation.attachment"
+              >{{ documentation.attachmentContentType }}, {{ byteSize(documentation.attachment) }}</span
+            >
+          </td>
+          <td>{{ documentation.description }}</td>
+          <td>{{ documentation.issued | formatMediumDate }}</td>
+          <td>{{ documentation.expiration | formatMediumDate }}</td>
+          <td jhiTranslate="{{ 'empsurApp.TaskStatus.' + documentation.approval }}">{{ documentation.approval }}</td>
+          <td>{{ documentation.requested | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="documentation.employee">
+              <a [routerLink]="['/employee', documentation.employee?.id, 'view']">{{ documentation.employee?.fullName }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="documentation.record">
+              <a [routerLink]="['/record', documentation.record?.id, 'view']">{{ documentation.record?.name }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/documentation', documentation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/documentation', documentation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(documentation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="documentations && documentations.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

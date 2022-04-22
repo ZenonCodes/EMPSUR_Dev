@@ -1,0 +1,110 @@
+
+
+
+application {
+ config {
+	baseName empsur
+    applicationType monolith
+    authenticationType jwt
+    clientFramework angularX
+    prodDatabaseType postgresql
+    websocket spring-websocket
+    packageName com.empsur.empsur
+    languages[en]
+    clientTheme cerulean   
+    buildTool gradle
+ }
+ entities Employee, Company, Documentation, Department, Record, Tag
+
+}
+
+entity Employee {
+	firstName String required
+    lastName String required
+    fullName String required
+    gender Gender required
+    status Status required
+    phone String required
+    addressLine1 String required
+    addressLine2 String
+    city String required
+    country String required
+    licenseNumber String
+}
+enum Gender {
+	MALE, FEMALE, OTHER
+}
+enum Status {
+	COMPLIANT, NON_COMPLIANT
+}
+
+enum TaskStatus {
+	COMPLETED, PENDING, IN_REVIEW
+}
+
+entity Documentation {
+	status DocumentationStatus required
+    name String required
+    attachment AnyBlob required
+    description String
+    issued LocalDate
+    expiration LocalDate
+    approval TaskStatus
+    requested LocalDate
+}
+
+enum DocumentationStatus {
+	VALID,
+    INVALID,
+    EXPIRED,
+    IN_REVIEW
+}
+
+entity Record{
+	name String required
+}
+entity Company {
+	name String required
+	idNumber String required 
+    status Status required
+    phone String required pattern (/[\d]+/)
+    adressLine1 String required
+    adressLine2 String
+    city String required
+    country String required
+}
+
+entity Department {
+	name String required
+}
+entity Tag {
+name String required
+}
+
+relationship OneToMany {
+	Company{employee(fullName)} to Employee{company(name)}
+    Company{department(name)} to Department {company(name)}
+    Department{employee(fullName)} to Employee{department(name)}
+	Employee{documentation(name)} to Documentation{employee(fullName)}
+    Record{documentation(name)} to Documentation{record(name)}
+    
+}
+
+
+relationship OneToOne{
+    Employee{user(login)} to User
+    Record{employee(fullName)} to Employee{record(name)}
+}
+
+relationship ManyToMany{
+	Documentation{tag(name)} to Tag{documentation(name)}
+}
+
+
+service Employee, Record, Documentation, Tag, Department, Company with serviceImpl
+paginate Record, Documentation, Employee with pagination
+
+
+
+
+

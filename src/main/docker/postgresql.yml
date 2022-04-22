@@ -4,9 +4,9 @@ services:
   empsur-postgresql:
     image: postgres:14.2
     # volumes:
-    #   - ~/volumes/jhipster/EMPSUR/postgresql/:/var/lib/postgresql/data/
+    #   - ~/volumes/jhipster/empsur/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=EMPSUR
+      - POSTGRES_USER=empsur
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     # If you want to expose these ports outside your dev PC,

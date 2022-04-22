@@ -31,7 +31,7 @@ public class EmpsurApp {
     }
 
     /**
-     * Initializes EMPSUR.
+     * Initializes empsur.
      * <p>
      * Spring profiles can be configured with a program argument --spring.profiles.active=your-active-profile
      * <p>

@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="documentation">
+      <h2 data-cy="documentationDetailsHeading"><span jhiTranslate="empsurApp.documentation.detail.title">Documentation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ documentation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'empsurApp.DocumentationStatus.' + documentation.status }}">{{ documentation.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.name">Name</span></dt>
+        <dd>
+          <span>{{ documentation.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.attachment">Attachment</span></dt>
+        <dd>
+          <div *ngIf="documentation.attachment">
+            <a (click)="openFile(documentation.attachment, documentation.attachmentContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ documentation.attachmentContentType }}, {{ byteSize(documentation.attachment) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.description">Description</span></dt>
+        <dd>
+          <span>{{ documentation.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.issued">Issued</span></dt>
+        <dd>
+          <span>{{ documentation.issued | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.expiration">Expiration</span></dt>
+        <dd>
+          <span>{{ documentation.expiration | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.approval">Approval</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'empsurApp.TaskStatus.' + documentation.approval }}">{{ documentation.approval }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.requested">Requested</span></dt>
+        <dd>
+          <span>{{ documentation.requested | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.tag">Tag</span></dt>
+        <dd>
+          <span *ngFor="let tag of documentation.tags; let last = last">
+            <a [routerLink]="['/tag', tag?.id, 'view']">{{ tag.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="documentation.employee">
+            <a [routerLink]="['/employee', documentation.employee?.id, 'view']">{{ documentation.employee?.fullName }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.documentation.record">Record</span></dt>
+        <dd>
+          <div *ngIf="documentation.record">
+            <a [routerLink]="['/record', documentation.record?.id, 'view']">{{ documentation.record?.name }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/documentation', documentation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
