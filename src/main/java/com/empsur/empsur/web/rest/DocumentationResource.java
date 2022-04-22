@@ -2,6 +2,8 @@ package com.empsur.empsur.web.rest;
 
 import com.empsur.empsur.domain.Documentation;
 import com.empsur.empsur.repository.DocumentationRepository;
+import com.empsur.empsur.security.AuthoritiesConstants;
+import com.empsur.empsur.security.SecurityUtils;
 import com.empsur.empsur.service.DocumentationService;
 import com.empsur.empsur.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -58,7 +60,7 @@ public class DocumentationResource {
      */
     @PostMapping("/documentations")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public ResponseEntity<Documentation> createDocumentation(@Valid @RequestBody Documentation documentation) throws URISyntaxException {
+    public ResponseEntity<?> createDocumentation(@Valid @RequestBody Documentation documentation) throws URISyntaxException {
         log.debug("REST request to save Documentation : {}", documentation);
         if (documentation.getId() != null) {
             throw new BadRequestAlertException("A new documentation cannot already have an ID", ENTITY_NAME, "idexists");
@@ -154,11 +156,12 @@ public class DocumentationResource {
     ) {
         log.debug("REST request to get a page of Documentations");
         Page<Documentation> page;
-        if (eagerload) {
-            page = documentationService.findAllWithEagerRelationships(pageable);
-        } else {
-            page = documentationService.findAll(pageable);
-        }
+        if(SecurityUtils.hasCurrentUserThisAuthority(AuthoritiesConstants.ADMIN)){
+                page = documentationService.findAll(pageable);
+            } else {
+                page = documentationRepository.findByEmployeeUserLogin(
+                    SecurityUtils.getCurrentUserLogin().orElse(null), pageable);
+            }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

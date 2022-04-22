@@ -2,6 +2,8 @@ package com.empsur.empsur.service.impl;
 
 import com.empsur.empsur.domain.Documentation;
 import com.empsur.empsur.repository.DocumentationRepository;
+import com.empsur.empsur.security.AuthoritiesConstants;
+import com.empsur.empsur.security.SecurityUtils;
 import com.empsur.empsur.service.DocumentationService;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -82,7 +84,7 @@ public class DocumentationServiceImpl implements DocumentationService {
     @Transactional(readOnly = true)
     public Page<Documentation> findAll(Pageable pageable) {
         log.debug("Request to get all Documentations");
-        return documentationRepository.findAll(pageable);
+            return documentationRepository.findAll(pageable);
     }
 
     public Page<Documentation> findAllWithEagerRelationships(Pageable pageable) {
