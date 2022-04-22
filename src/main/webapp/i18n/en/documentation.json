@@ -6,7 +6,7 @@
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Documentation",
         "createOrEditLabel": "Create or edit a Documentation",
-        "notFound": "No Documentations found"
+        "notFound": "No Documentation found"
       },
       "created": "A new Documentation is created with identifier {{ param }}",
       "updated": "A Documentation is updated with identifier {{ param }}",

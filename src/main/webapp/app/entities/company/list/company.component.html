@@ -58,7 +58,7 @@
           <td>{{ company.city }}</td>
           <td>{{ company.country }}</td>
           <td class="text-end">
-            <div class="btn-group">
+            <div class="btn-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
               <button
                 type="submit"
                 [routerLink]="['/company', company.id, 'view']"
