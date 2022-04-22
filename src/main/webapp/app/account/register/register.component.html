@@ -55,7 +55,7 @@
               *ngIf="registerForm.get('login')?.errors?.minlength"
               jhiTranslate="register.messages.validate.login.minlength"
             >
-              Your username is required to be at least 1 character.
+              Your username is required to be at least 4 character.
             </small>
 
             <small
@@ -151,7 +151,7 @@
               *ngIf="registerForm.get('password')?.errors?.minlength"
               jhiTranslate="global.messages.validate.newpassword.minlength"
             >
-              Your password is required to be at least 4 characters.
+              Your password is required to be at least 8 characters.
             </small>
 
             <small
@@ -197,7 +197,7 @@
               *ngIf="registerForm.get('confirmPassword')?.errors?.minlength"
               jhiTranslate="global.messages.validate.confirmpassword.minlength"
             >
-              Your confirmation password is required to be at least 4 characters.
+              Your confirmation password is required to be at least 8 characters.
             </small>
 
             <small
