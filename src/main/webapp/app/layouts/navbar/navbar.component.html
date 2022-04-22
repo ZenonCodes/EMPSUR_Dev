@@ -43,6 +43,7 @@
             </span>
           </a>
           <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+            <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <li>
               <a
                 class="dropdown-item"
@@ -55,6 +56,7 @@
                 <span jhiTranslate="global.menu.entities.employee">Employee</span>
               </a>
             </li>
+
             <li>
               <a
                 class="dropdown-item"
@@ -67,6 +69,7 @@
                 <span jhiTranslate="global.menu.entities.company">Company</span>
               </a>
             </li>
+          </div>
             <li>
               <a
                 class="dropdown-item"
@@ -79,6 +82,7 @@
                 <span jhiTranslate="global.menu.entities.documentation">Documentation</span>
               </a>
             </li>
+            <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <li>
               <a
                 class="dropdown-item"
@@ -115,6 +119,7 @@
                 <span jhiTranslate="global.menu.entities.tag">Tag</span>
               </a>
             </li>
+              </div>
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
           </ul>
         </li>
