@@ -25,14 +25,14 @@ export class RegisterComponent implements AfterViewInit {
       '',
       [
         Validators.required,
-        Validators.minLength(1),
+        Validators.minLength(4),
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$'),
       ],
     ],
     email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
+    confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
   });
 
   constructor(private translateService: TranslateService, private registerService: RegisterService, private fb: FormBuilder) {}

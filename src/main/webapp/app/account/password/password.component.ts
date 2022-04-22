@@ -17,8 +17,8 @@ export class PasswordComponent implements OnInit {
   account$?: Observable<Account | null>;
   passwordForm = this.fb.group({
     currentPassword: ['', [Validators.required]],
-    newPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    newPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
+    confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
   });
 
   constructor(private passwordService: PasswordService, private accountService: AccountService, private fb: FormBuilder) {}
