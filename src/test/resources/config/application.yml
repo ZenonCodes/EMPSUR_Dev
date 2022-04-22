@@ -18,7 +18,7 @@ spring:
     # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
     #active: testcontainers
   application:
-    name: EMPSUR
+    name: empsur
 
   datasource:
     type: com.zaxxer.hikari.HikariDataSource

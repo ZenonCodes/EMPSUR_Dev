@@ -1,0 +1,37 @@
+{
+  "applications": ["empsur"],
+  "changelogDate": "20220422130113",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "record",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Record",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "fullName",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "record",
+      "ownerSide": true,
+      "relationshipName": "employee",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "documentation",
+      "otherEntityRelationshipName": "record",
+      "relationshipName": "documentation",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

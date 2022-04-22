@@ -48,6 +48,19 @@ public class CacheConfiguration {
             createCache(cm, com.empsur.empsur.domain.User.class.getName());
             createCache(cm, com.empsur.empsur.domain.Authority.class.getName());
             createCache(cm, com.empsur.empsur.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.empsur.empsur.domain.Employee.class.getName());
+            createCache(cm, com.empsur.empsur.domain.Employee.class.getName() + ".documentations");
+            createCache(cm, com.empsur.empsur.domain.Company.class.getName());
+            createCache(cm, com.empsur.empsur.domain.Company.class.getName() + ".employees");
+            createCache(cm, com.empsur.empsur.domain.Company.class.getName() + ".departments");
+            createCache(cm, com.empsur.empsur.domain.Documentation.class.getName());
+            createCache(cm, com.empsur.empsur.domain.Documentation.class.getName() + ".tags");
+            createCache(cm, com.empsur.empsur.domain.Department.class.getName());
+            createCache(cm, com.empsur.empsur.domain.Department.class.getName() + ".employees");
+            createCache(cm, com.empsur.empsur.domain.Record.class.getName());
+            createCache(cm, com.empsur.empsur.domain.Record.class.getName() + ".documentations");
+            createCache(cm, com.empsur.empsur.domain.Tag.class.getName());
+            createCache(cm, com.empsur.empsur.domain.Tag.class.getName() + ".documentations");
             // jhipster-needle-ehcache-add-entry
         };
     }

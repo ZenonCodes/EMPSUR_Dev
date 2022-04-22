@@ -60,9 +60,6 @@ if (project.hasProperty("gae")) {
     appengineStage.dependsOn thinResolve
 }
 
-if (project.hasProperty("zipkin")) {
-    apply from: "gradle/zipkin.gradle"
-}
 
 idea {
     module {
@@ -145,7 +142,7 @@ liquibase {
         main {
             driver "org.h2.Driver"
             url "jdbc:h2:file:./build/h2db/db/empsur"
-            username "EMPSUR"
+            username "empsur"
             password ""
             changeLogFile "src/main/resources/config/liquibase/master.xml"
             defaultSchemaName ""
@@ -155,7 +152,7 @@ liquibase {
         diffLog {
             driver "org.h2.Driver"
             url "jdbc:h2:file:./build/h2db/db/empsur"
-            username "EMPSUR"
+            username "empsur"
             password ""
             changeLogFile project.ext.diffChangelogFile
             referenceUrl "hibernate:spring:com.empsur.empsur.domain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
@@ -247,7 +244,6 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-websocket"
     implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
     implementation "org.zalando:problem-spring-web"
-    implementation "org.springframework.cloud:spring-cloud-starter-bootstrap"
     implementation "org.springframework.security:spring-security-config"
     implementation "org.springframework.security:spring-security-data"
     implementation "org.springframework.security:spring-security-web"

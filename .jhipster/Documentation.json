@@ -1,0 +1,77 @@
+{
+  "applications": ["empsur"],
+  "changelogDate": "20220422130111",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "documentation",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "DocumentationStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "VALID,INVALID,EXPIRED,IN_REVIEW"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "attachment",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issued",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "expiration",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "approval",
+      "fieldType": "TaskStatus",
+      "fieldValues": "COMPLETED,PENDING,IN_REVIEW"
+    },
+    {
+      "fieldName": "requested",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Documentation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "documentation",
+      "ownerSide": true,
+      "relationshipName": "tag",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "fullName",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "documentation",
+      "relationshipName": "employee",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "record",
+      "otherEntityRelationshipName": "documentation",
+      "relationshipName": "record",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="company">
+      <h2 data-cy="companyDetailsHeading"><span jhiTranslate="empsurApp.company.detail.title">Company</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ company.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.name">Name</span></dt>
+        <dd>
+          <span>{{ company.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.idNumber">Id Number</span></dt>
+        <dd>
+          <span>{{ company.idNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'empsurApp.Status.' + company.status }}">{{ company.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.phone">Phone</span></dt>
+        <dd>
+          <span>{{ company.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.adressLine1">Adress Line 1</span></dt>
+        <dd>
+          <span>{{ company.adressLine1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.adressLine2">Adress Line 2</span></dt>
+        <dd>
+          <span>{{ company.adressLine2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.city">City</span></dt>
+        <dd>
+          <span>{{ company.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="empsurApp.company.country">Country</span></dt>
+        <dd>
+          <span>{{ company.country }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/company', company.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

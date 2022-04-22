@@ -1,0 +1,11 @@
+id;status;name;attachment;attachment_content_type;description;issued;expiration;approval;requested
+1;VALID;bus bypassing;../fake-data/blob/hipster.png;image/png;index;2022-04-22;2022-04-22;COMPLETED;2022-04-21
+2;EXPIRED;Granite Identity;../fake-data/blob/hipster.png;image/png;Handcrafted;2022-04-22;2022-04-22;COMPLETED;2022-04-22
+3;EXPIRED;Focused withdrawal Compatible;../fake-data/blob/hipster.png;image/png;Rubber;2022-04-21;2022-04-21;IN_REVIEW;2022-04-21
+4;EXPIRED;synthesizing;../fake-data/blob/hipster.png;image/png;revolutionize Unbranded;2022-04-22;2022-04-22;COMPLETED;2022-04-22
+5;INVALID;Iran;../fake-data/blob/hipster.png;image/png;cohesive;2022-04-21;2022-04-22;PENDING;2022-04-22
+6;IN_REVIEW;interface;../fake-data/blob/hipster.png;image/png;visionary Functionality;2022-04-22;2022-04-22;COMPLETED;2022-04-22
+7;VALID;Ergonomic Pants Gorgeous;../fake-data/blob/hipster.png;image/png;Jamahiriya;2022-04-22;2022-04-21;COMPLETED;2022-04-21
+8;IN_REVIEW;California;../fake-data/blob/hipster.png;image/png;Profound Clothing Mountain;2022-04-22;2022-04-21;COMPLETED;2022-04-22
+9;VALID;Borders digital;../fake-data/blob/hipster.png;image/png;mobile connecting Dynamic;2022-04-21;2022-04-22;IN_REVIEW;2022-04-22
+10;VALID;Consultant Bedfordshire interactive;../fake-data/blob/hipster.png;image/png;navigating;2022-04-21;2022-04-21;IN_REVIEW;2022-04-22
