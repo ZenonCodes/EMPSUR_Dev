@@ -1,4 +1,4 @@
-# EMPSUR
+# empsur
 
 This application was generated using JHipster 7.8.1, you can find documentation and help at [https://www.jhipster.tech](https://www.jhipster.tech).
 
@@ -121,7 +121,7 @@ docker-compose -f src/main/docker/jhipster-control-center.yml up
 
 ### Packaging as jar
 
-To build the final jar and optimize the EMPSUR application for production, run:
+To build the final jar and optimize the empsur application for production, run:
 
 ```
 ./gradlew -Pprod clean bootJar
@@ -235,3 +235,5 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
 [angular cli]: https://cli.angular.io/
+# EMPSUR_Dev
+# EMPSUR_Dev
