@@ -2,7 +2,7 @@
   "empsurApp": {
     "documentation": {
       "home": {
-        "title": "Documentations",
+        "title": "Documentation",
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Documentation",
         "createOrEditLabel": "Create or edit a Documentation",

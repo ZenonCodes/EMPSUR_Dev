@@ -1,13 +1,13 @@
 <div>
   <h2 id="page-heading" data-cy="DocumentationHeading">
-    <span jhiTranslate="empsurApp.documentation.home.title">Documentations</span>
+    <span jhiTranslate="empsurApp.documentation.home.title">Documentation</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="empsurApp.documentation.home.refreshListLabel">Refresh List</span>
       </button>
-
+      <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
@@ -17,6 +17,7 @@
         <fa-icon icon="plus"></fa-icon>
         <span jhiTranslate="empsurApp.documentation.home.createLabel"> Create a new Documentation </span>
       </button>
+      </div>
     </div>
   </h2>
 
@@ -100,7 +101,7 @@
             </div>
           </td>
           <td class="text-end">
-            <div class="btn-group">
+            <div  class="btn-group">
               <button
                 type="submit"
                 [routerLink]="['/documentation', documentation.id, 'view']"
@@ -120,7 +121,8 @@
                 <fa-icon icon="pencil-alt"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
               </button>
-
+            </div>
+          <div class="admin-btn-group" *jhiHasAnyAuthority="'ROLE_ADMIN'">
               <button type="submit" (click)="delete(documentation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
