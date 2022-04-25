@@ -2,6 +2,7 @@ package com.empsur.empsur.web.rest;
 
 import com.empsur.empsur.domain.Documentation;
 import com.empsur.empsur.repository.DocumentationRepository;
+import com.empsur.empsur.security.AuthoritiesConstants;
 import com.empsur.empsur.service.DocumentationService;
 import com.empsur.empsur.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -19,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -56,6 +58,7 @@ public class DocumentationResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/documentations")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<Documentation> createDocumentation(@Valid @RequestBody Documentation documentation) throws URISyntaxException {
         log.debug("REST request to save Documentation : {}", documentation);
         if (documentation.getId() != null) {

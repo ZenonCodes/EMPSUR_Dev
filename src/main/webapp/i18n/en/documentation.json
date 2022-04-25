@@ -2,10 +2,10 @@
   "empsurApp": {
     "documentation": {
       "home": {
-        "title": "Documentations",
+        "title": "Documentation",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Documentation",
-        "createOrEditLabel": "Create or edit a Documentation",
+        "createLabel": "Create new Documentation",
+        "createOrEditLabel": "Create or edit Documentation",
         "notFound": "No Documentations found"
       },
       "created": "A new Documentation is created with identifier {{ param }}",
