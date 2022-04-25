@@ -25,7 +25,7 @@
         <dt><span jhiTranslate="empsurApp.documentation.attachment">Attachment</span></dt>
         <dd>
           <div *ngIf="documentation.attachment">
-            <a (click)="openFile(documentation.attachment, documentation.attachmentContentType)" jhiTranslate="entity.action.open">open</a>
+            <a (click)="openFile(documentation.attachment, documentation.attachmentContentType)" jhiTranslate="entity.action.open"><b>open</b></a>
             {{ documentation.attachmentContentType }}, {{ byteSize(documentation.attachment) }}
           </div>
         </dd>
