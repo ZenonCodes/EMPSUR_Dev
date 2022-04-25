@@ -62,6 +62,7 @@
           <th scope="col" jhiSortBy="licenseNumber">
             <span jhiTranslate="empsurApp.employee.licenseNumber">License Number</span> <fa-icon icon="sort"></fa-icon>
           </th>
+          <th scope="col" jhiSortBy="state"><span jhiTranslate="empsurApp.employee.state">State</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col" jhiSortBy="user.login">
             <span jhiTranslate="empsurApp.employee.user">User</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -90,6 +91,7 @@
           <td>{{ employee.city }}</td>
           <td>{{ employee.country }}</td>
           <td>{{ employee.licenseNumber }}</td>
+          <td>{{ employee.state }}</td>
           <td>
             {{ employee.user?.login }}
           </td>

@@ -27,6 +27,7 @@ export class CompanyUpdateComponent implements OnInit {
     adressLine2: [],
     city: [null, [Validators.required]],
     country: [null, [Validators.required]],
+    state: [],
   });
 
   constructor(protected companyService: CompanyService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
@@ -81,6 +82,7 @@ export class CompanyUpdateComponent implements OnInit {
       adressLine2: company.adressLine2,
       city: company.city,
       country: company.country,
+      state: company.state,
     });
   }
 
@@ -96,6 +98,7 @@ export class CompanyUpdateComponent implements OnInit {
       adressLine2: this.editForm.get(['adressLine2'])!.value,
       city: this.editForm.get(['city'])!.value,
       country: this.editForm.get(['country'])!.value,
+      state: this.editForm.get(['state'])!.value,
     };
   }
 }

@@ -6,7 +6,7 @@
         data-cy="DocumentationCreateUpdateHeading"
         jhiTranslate="empsurApp.documentation.home.createOrEditLabel"
       >
-        Create or edit a Documentation
+        Create or edit Documentation
       </h2>
 
       <div>
@@ -17,7 +17,7 @@
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.status" for="field_status">Status</label>
           <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
             <option [ngValue]="null">{{ 'empsurApp.DocumentationStatus.null' | translate }}</option>
@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.name" for="field_name">Name</label>
           <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
           <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
@@ -97,7 +97,7 @@
           </div>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.description" for="field_description">Description</label>
           <input
             type="text"
@@ -143,7 +143,7 @@
           </div>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.approval" for="field_approval">Approval</label>
           <select class="form-control" name="approval" formControlName="approval" id="field_approval" data-cy="approval">
             <option [ngValue]="null">{{ 'empsurApp.TaskStatus.null' | translate }}</option>
@@ -153,7 +153,7 @@
           </select>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.requested" for="field_requested">Requested</label>
           <div class="input-group">
             <input
@@ -170,7 +170,7 @@
           </div>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label jhiTranslate="empsurApp.documentation.tag" for="field_tags">Tag</label>
           <select class="form-control" id="field_tags" data-cy="tag" multiple name="tags" formControlName="tags">
             <option
@@ -182,7 +182,7 @@
           </select>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.employee" for="field_employee">Employee</label>
           <select class="form-control" id="field_employee" data-cy="employee" name="employee" formControlName="employee">
             <option [ngValue]="null"></option>
@@ -195,7 +195,7 @@
           </select>
         </div>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row mb-3">
+        <div class="row mb-3">
           <label class="form-label" jhiTranslate="empsurApp.documentation.record" for="field_record">Record</label>
           <select class="form-control" id="field_record" data-cy="record" name="record" formControlName="record">
             <option [ngValue]="null"></option>

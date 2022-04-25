@@ -2,8 +2,6 @@ package com.empsur.empsur.web.rest;
 
 import com.empsur.empsur.domain.Documentation;
 import com.empsur.empsur.repository.DocumentationRepository;
-import com.empsur.empsur.security.AuthoritiesConstants;
-import com.empsur.empsur.security.SecurityUtils;
 import com.empsur.empsur.service.DocumentationService;
 import com.empsur.empsur.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -21,7 +19,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -59,8 +56,7 @@ public class DocumentationResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/documentations")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public ResponseEntity<?> createDocumentation(@Valid @RequestBody Documentation documentation) throws URISyntaxException {
+    public ResponseEntity<Documentation> createDocumentation(@Valid @RequestBody Documentation documentation) throws URISyntaxException {
         log.debug("REST request to save Documentation : {}", documentation);
         if (documentation.getId() != null) {
             throw new BadRequestAlertException("A new documentation cannot already have an ID", ENTITY_NAME, "idexists");
@@ -156,12 +152,11 @@ public class DocumentationResource {
     ) {
         log.debug("REST request to get a page of Documentations");
         Page<Documentation> page;
-        if(SecurityUtils.hasCurrentUserThisAuthority(AuthoritiesConstants.ADMIN)){
-                page = documentationService.findAll(pageable);
-            } else {
-                page = documentationRepository.findByEmployeeUserLogin(
-                    SecurityUtils.getCurrentUserLogin().orElse(null), pageable);
-            }
+        if (eagerload) {
+            page = documentationService.findAllWithEagerRelationships(pageable);
+        } else {
+            page = documentationService.findAll(pageable);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -186,7 +181,6 @@ public class DocumentationResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/documentations/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteDocumentation(@PathVariable Long id) {
         log.debug("REST request to delete Documentation : {}", id);
         documentationService.delete(id);

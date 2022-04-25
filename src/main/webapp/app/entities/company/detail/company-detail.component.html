@@ -30,11 +30,11 @@
         <dd>
           <span>{{ company.phone }}</span>
         </dd>
-        <dt><span jhiTranslate="empsurApp.company.adressLine1">Adress Line 1</span></dt>
+        <dt><span jhiTranslate="empsurApp.company.adressLine1">Address Line 1</span></dt>
         <dd>
           <span>{{ company.adressLine1 }}</span>
         </dd>
-        <dt><span jhiTranslate="empsurApp.company.adressLine2">Adress Line 2</span></dt>
+        <dt><span jhiTranslate="empsurApp.company.adressLine2">Address Line 2</span></dt>
         <dd>
           <span>{{ company.adressLine2 }}</span>
         </dd>
@@ -42,10 +42,15 @@
         <dd>
           <span>{{ company.city }}</span>
         </dd>
+        <dt><span jhiTranslate="empsurApp.company.state">State</span></dt>
+        <dd>
+          <span>{{ company.state }}</span>
+        </dd>
         <dt><span jhiTranslate="empsurApp.company.country">Country</span></dt>
         <dd>
           <span>{{ company.country }}</span>
         </dd>
+
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

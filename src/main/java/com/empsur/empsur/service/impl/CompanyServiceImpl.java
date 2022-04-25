@@ -68,6 +68,9 @@ public class CompanyServiceImpl implements CompanyService {
                 if (company.getCountry() != null) {
                     existingCompany.setCountry(company.getCountry());
                 }
+                if (company.getState() != null) {
+                    existingCompany.setState(company.getState());
+                }
 
                 return existingCompany;
             })

@@ -30,6 +30,7 @@ describe('Company Service', () => {
       adressLine2: 'AAAAAAA',
       city: 'AAAAAAA',
       country: 'AAAAAAA',
+      state: 'AAAAAAA',
     };
   });
 
@@ -73,6 +74,7 @@ describe('Company Service', () => {
           adressLine2: 'BBBBBB',
           city: 'BBBBBB',
           country: 'BBBBBB',
+          state: 'BBBBBB',
         },
         elemDefault
       );
@@ -92,6 +94,7 @@ describe('Company Service', () => {
           idNumber: 'BBBBBB',
           adressLine1: 'BBBBBB',
           country: 'BBBBBB',
+          state: 'BBBBBB',
         },
         new Company()
       );
@@ -119,6 +122,7 @@ describe('Company Service', () => {
           adressLine2: 'BBBBBB',
           city: 'BBBBBB',
           country: 'BBBBBB',
+          state: 'BBBBBB',
         },
         elemDefault
       );
@@ -170,7 +174,7 @@ describe('Company Service', () => {
       });
 
       it('should add only unique Company to an array', () => {
-        const companyArray: ICompany[] = [{ id: 123 }, { id: 456 }, { id: 57908 }];
+        const companyArray: ICompany[] = [{ id: 123 }, { id: 456 }, { id: 97190 }];
         const companyCollection: ICompany[] = [{ id: 123 }];
         expectedResult = service.addCompanyToCollectionIfMissing(companyCollection, ...companyArray);
         expect(expectedResult).toHaveLength(3);

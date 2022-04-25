@@ -59,6 +59,10 @@
     {
       "fieldName": "licenseNumber",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
     }
   ],
   "fluentMethods": true,

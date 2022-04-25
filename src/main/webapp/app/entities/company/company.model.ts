@@ -12,6 +12,7 @@ export interface ICompany {
   adressLine2?: string | null;
   city?: string;
   country?: string;
+  state?: string | null;
   employees?: IEmployee[] | null;
   departments?: IDepartment[] | null;
 }
@@ -27,6 +28,7 @@ export class Company implements ICompany {
     public adressLine2?: string | null,
     public city?: string,
     public country?: string,
+    public state?: string | null,
     public employees?: IEmployee[] | null,
     public departments?: IDepartment[] | null
   ) {}

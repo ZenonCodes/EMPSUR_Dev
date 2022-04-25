@@ -41,6 +41,4 @@ public interface DocumentationRepository extends DocumentationRepositoryWithBagR
         "select documentation from Documentation documentation left join fetch documentation.employee left join fetch documentation.record where documentation.id =:id"
     )
     Optional<Documentation> findOneWithToOneRelationships(@Param("id") Long id);
-
-    Page<Documentation> findByEmployeeUserLogin(String userLogin, Pageable pageable);
 }

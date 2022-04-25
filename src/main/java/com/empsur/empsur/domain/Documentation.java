@@ -38,11 +38,10 @@ public class Documentation implements Serializable {
     private String name;
 
     @Lob
-    @Column(name = "attachment", nullable = false)
+    @Column(name = "attachment")
     private byte[] attachment;
 
-    @NotNull
-    @Column(name = "attachment_content_type", nullable = false)
+    @Column(name = "attachment_content_type")
     private String attachmentContentType;
 
     @Column(name = "description")
