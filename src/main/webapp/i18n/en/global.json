@@ -53,9 +53,9 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "If you want to ",
-          "link": "sign in",
-          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+          "prefix": "Click ",
+          "link": "sign in ",
+          "suffix": "to sign in."
         },
         "register": {
           "noaccount": "You don't have an account yet?",
@@ -89,7 +89,7 @@
       "id": "ID"
     },
     "ribbon": {
-      "dev": "Development"
+      "dev": ""
     },
     "item-count": "Showing {{first}} - {{second}} of {{total}} items."
   },
@@ -143,5 +143,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "This is your footer"
+  "footer": "Copyright © 2022 EMPSUR. All Rights Reserved.\n "
 }

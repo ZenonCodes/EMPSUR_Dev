@@ -160,7 +160,9 @@ entity detail page css
 /* ==========================================================================
 ui bootstrap tweaks
 ========================================================================== */
-.nav,
+.nav{
+  background-color: #06327D;
+}
 .pagination,
 .carousel,
 .panel-title a {
@@ -193,6 +195,7 @@ angular-cli removes postcss-rtl processed inline css, processed rules must be ad
 
 /* navbar.component.scss */
 .navbar {
+  background-color: #06327D;
   ul.navbar-nav {
     .nav-item {
       margin-left: 0.5em;
