@@ -36,7 +36,7 @@ export class DocumentationUpdateComponent implements OnInit {
     id: [],
     status: [null, [Validators.required]],
     name: [null, [Validators.required]],
-    attachment: [null, [Validators.required]],
+    attachment: [],
     attachmentContentType: [],
     description: [],
     issued: [],

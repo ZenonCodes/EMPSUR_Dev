@@ -59,6 +59,9 @@ public class Company implements Serializable {
     @Column(name = "country", nullable = false)
     private String country;
 
+    @Column(name = "state")
+    private String state;
+
     @OneToMany(mappedBy = "company")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "user", "documentations", "record", "company", "department" }, allowSetters = true)
@@ -188,6 +191,19 @@ public class Company implements Serializable {
         this.country = country;
     }
 
+    public String getState() {
+        return this.state;
+    }
+
+    public Company state(String state) {
+        this.setState(state);
+        return this;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public Set<Employee> getEmployees() {
         return this.employees;
     }
@@ -282,6 +298,7 @@ public class Company implements Serializable {
             ", adressLine2='" + getAdressLine2() + "'" +
             ", city='" + getCity() + "'" +
             ", country='" + getCountry() + "'" +
+            ", state='" + getState() + "'" +
             "}";
     }
 }

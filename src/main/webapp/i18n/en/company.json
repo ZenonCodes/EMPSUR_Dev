@@ -22,10 +22,11 @@
       "idNumber": "Id Number",
       "status": "Status",
       "phone": "Phone",
-      "adressLine1": "Adress Line 1",
-      "adressLine2": "Adress Line 2",
+      "adressLine1": "Address Line 1",
+      "adressLine2": "Address Line 2",
       "city": "City",
       "country": "Country",
+      "state": "State",
       "employee": "Employee",
       "department": "Department"
     }

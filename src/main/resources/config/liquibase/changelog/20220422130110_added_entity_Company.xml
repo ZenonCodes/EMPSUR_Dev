@@ -38,6 +38,9 @@
             <column name="country" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
+            <column name="state" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -67,6 +70,7 @@
             <column name="adress_line_2" type="string"/>
             <column name="city" type="string"/>
             <column name="country" type="string"/>
+            <column name="state" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

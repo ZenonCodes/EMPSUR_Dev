@@ -45,6 +45,10 @@
       "fieldName": "country",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
     }
   ],
   "fluentMethods": true,

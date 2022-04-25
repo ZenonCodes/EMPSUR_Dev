@@ -34,6 +34,7 @@ describe('Employee Service', () => {
       city: 'AAAAAAA',
       country: 'AAAAAAA',
       licenseNumber: 'AAAAAAA',
+      state: 'AAAAAAA',
     };
   });
 
@@ -80,6 +81,7 @@ describe('Employee Service', () => {
           city: 'BBBBBB',
           country: 'BBBBBB',
           licenseNumber: 'BBBBBB',
+          state: 'BBBBBB',
         },
         elemDefault
       );
@@ -106,6 +108,7 @@ describe('Employee Service', () => {
           city: 'BBBBBB',
           country: 'BBBBBB',
           licenseNumber: 'BBBBBB',
+          state: 'BBBBBB',
         },
         new Employee()
       );
@@ -136,6 +139,7 @@ describe('Employee Service', () => {
           city: 'BBBBBB',
           country: 'BBBBBB',
           licenseNumber: 'BBBBBB',
+          state: 'BBBBBB',
         },
         elemDefault
       );
@@ -187,7 +191,7 @@ describe('Employee Service', () => {
       });
 
       it('should add only unique Employee to an array', () => {
-        const employeeArray: IEmployee[] = [{ id: 123 }, { id: 456 }, { id: 99877 }];
+        const employeeArray: IEmployee[] = [{ id: 123 }, { id: 456 }, { id: 53561 }];
         const employeeCollection: IEmployee[] = [{ id: 123 }];
         expectedResult = service.addEmployeeToCollectionIfMissing(employeeCollection, ...employeeArray);
         expect(expectedResult).toHaveLength(3);

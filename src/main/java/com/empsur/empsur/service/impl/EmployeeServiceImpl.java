@@ -81,6 +81,9 @@ public class EmployeeServiceImpl implements EmployeeService {
                 if (employee.getLicenseNumber() != null) {
                     existingEmployee.setLicenseNumber(employee.getLicenseNumber());
                 }
+                if (employee.getState() != null) {
+                    existingEmployee.setState(employee.getState());
+                }
 
                 return existingEmployee;
             })

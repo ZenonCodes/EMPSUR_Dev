@@ -1,11 +1,11 @@
-id;name;id_number;status;phone;adress_line_1;adress_line_2;city;country
-1;Isle;benchmark;NON_COMPLIANT;"9565";Account Health;bypass Enterprise-wide;Twin Falls;Portugal
-2;teal reboot invoice;Analyst schemas Electronics;NON_COMPLIANT;"100912";Metal Automotive;Martinique Quality e-markets;Vandervortview;Poland
-3;XML;SCSI;NON_COMPLIANT;"6";architecture Awesome;standardization Borders Awesome;Teaganview;Macedonia
-4;monetize;compressing virtual;COMPLIANT;"32";Shoes Investment Extensions;Car;East Rick;Guadeloupe
-5;Thailand invoice;Bedfordshire mint;COMPLIANT;"7";maroon Bolivia;Fantastic AI;Predovicton;Djibouti
-6;International Montserrat;bandwidth structure payment;COMPLIANT;"35";Cambridgeshire Pants;dynamic indexing RAM;Pollichfurt;Somalia
-7;transitional;mobile;COMPLIANT;"337";Keyboard Frozen;ROI Georgia;South Johnathan;Serbia
-8;navigate;Avon;NON_COMPLIANT;"5";Refined Personal;network Soap invoice;Paradise;Ireland
-9;Shoes;Keyboard Jewelery;NON_COMPLIANT;"1";Coordinator;Avon Soft Generic;East Nedra;Netherlands Antilles
-10;generating Soap;capability Markets Metal;COMPLIANT;"3224";Row Fantastic Object-based;Operations;Laredo;Chile
+id;name;id_number;status;phone;adress_line_1;adress_line_2;city;country;state
+1;Isle;benchmark;NON_COMPLIANT;"9565";Account Health;bypass Enterprise-wide;Twin Falls;Portugal;teal reboot invoice
+2;Analyst schemas Electronics;Research Automotive explicit;NON_COMPLIANT;"0";JBOD Greece Australian;Technician Road;Levittown;Pitcairn Islands;SCSI
+3;Tuna architecture Awesome;standardization Borders Awesome;NON_COMPLIANT;"453336";compressing virtual;Grass-roots;Battle Creek;Peru;Cambridgeshire strategize plum
+4;Re-contextualized;leverage magnetic SCSI;NON_COMPLIANT;"4522";Computer;quantify;East Kane;Bolivia;California
+5;AI;Azerbaijanian plug-and-play firewall;COMPLIANT;"46438";payment Glen;Borders Customizable;Lake Eudora;Heard Island and McDonald Islands;indexing RAM synthesize
+6;Gorgeous mobile bleeding-edge;interface Chips;NON_COMPLIANT;"442";Georgia;Borders;Lake Gay;Guadeloupe;Avon
+7;Awesome Refined Personal;network Soap invoice;NON_COMPLIANT;"40078";Keyboard Jewelery;Electronics Coordinator connect;Atascocita;Faroe Islands;magnetic Credit Reduced
+8;generating Soap;capability Markets Metal;COMPLIANT;"3224";Row Fantastic Object-based;Operations;Laredo;Chile;killer input
+9;GB;Music Gorgeous;NON_COMPLIANT;"217";Buckinghamshire RSS;Buckinghamshire Belize;Taylorsville;Greece;Ergonomic
+10;incentivize;Small Mandatory Intranet;NON_COMPLIANT;"26";RAM Music Account;zero Manager;Gilroy;Lebanon;quantifying Sandwich hardware

@@ -54,6 +54,9 @@ class CompanyResourceIT {
     private static final String DEFAULT_COUNTRY = "AAAAAAAAAA";
     private static final String UPDATED_COUNTRY = "BBBBBBBBBB";
 
+    private static final String DEFAULT_STATE = "AAAAAAAAAA";
+    private static final String UPDATED_STATE = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/companies";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -86,7 +89,8 @@ class CompanyResourceIT {
             .adressLine1(DEFAULT_ADRESS_LINE_1)
             .adressLine2(DEFAULT_ADRESS_LINE_2)
             .city(DEFAULT_CITY)
-            .country(DEFAULT_COUNTRY);
+            .country(DEFAULT_COUNTRY)
+            .state(DEFAULT_STATE);
         return company;
     }
 
@@ -105,7 +109,8 @@ class CompanyResourceIT {
             .adressLine1(UPDATED_ADRESS_LINE_1)
             .adressLine2(UPDATED_ADRESS_LINE_2)
             .city(UPDATED_CITY)
-            .country(UPDATED_COUNTRY);
+            .country(UPDATED_COUNTRY)
+            .state(UPDATED_STATE);
         return company;
     }
 
@@ -135,6 +140,7 @@ class CompanyResourceIT {
         assertThat(testCompany.getAdressLine2()).isEqualTo(DEFAULT_ADRESS_LINE_2);
         assertThat(testCompany.getCity()).isEqualTo(DEFAULT_CITY);
         assertThat(testCompany.getCountry()).isEqualTo(DEFAULT_COUNTRY);
+        assertThat(testCompany.getState()).isEqualTo(DEFAULT_STATE);
     }
 
     @Test
@@ -293,7 +299,8 @@ class CompanyResourceIT {
             .andExpect(jsonPath("$.[*].adressLine1").value(hasItem(DEFAULT_ADRESS_LINE_1)))
             .andExpect(jsonPath("$.[*].adressLine2").value(hasItem(DEFAULT_ADRESS_LINE_2)))
             .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY)))
-            .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)));
+            .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)))
+            .andExpect(jsonPath("$.[*].state").value(hasItem(DEFAULT_STATE)));
     }
 
     @Test
@@ -315,7 +322,8 @@ class CompanyResourceIT {
             .andExpect(jsonPath("$.adressLine1").value(DEFAULT_ADRESS_LINE_1))
             .andExpect(jsonPath("$.adressLine2").value(DEFAULT_ADRESS_LINE_2))
             .andExpect(jsonPath("$.city").value(DEFAULT_CITY))
-            .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY));
+            .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY))
+            .andExpect(jsonPath("$.state").value(DEFAULT_STATE));
     }
 
     @Test
@@ -345,7 +353,8 @@ class CompanyResourceIT {
             .adressLine1(UPDATED_ADRESS_LINE_1)
             .adressLine2(UPDATED_ADRESS_LINE_2)
             .city(UPDATED_CITY)
-            .country(UPDATED_COUNTRY);
+            .country(UPDATED_COUNTRY)
+            .state(UPDATED_STATE);
 
         restCompanyMockMvc
             .perform(
@@ -367,6 +376,7 @@ class CompanyResourceIT {
         assertThat(testCompany.getAdressLine2()).isEqualTo(UPDATED_ADRESS_LINE_2);
         assertThat(testCompany.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testCompany.getCountry()).isEqualTo(UPDATED_COUNTRY);
+        assertThat(testCompany.getState()).isEqualTo(UPDATED_STATE);
     }
 
     @Test
@@ -459,6 +469,7 @@ class CompanyResourceIT {
         assertThat(testCompany.getAdressLine2()).isEqualTo(UPDATED_ADRESS_LINE_2);
         assertThat(testCompany.getCity()).isEqualTo(DEFAULT_CITY);
         assertThat(testCompany.getCountry()).isEqualTo(UPDATED_COUNTRY);
+        assertThat(testCompany.getState()).isEqualTo(DEFAULT_STATE);
     }
 
     @Test
@@ -481,7 +492,8 @@ class CompanyResourceIT {
             .adressLine1(UPDATED_ADRESS_LINE_1)
             .adressLine2(UPDATED_ADRESS_LINE_2)
             .city(UPDATED_CITY)
-            .country(UPDATED_COUNTRY);
+            .country(UPDATED_COUNTRY)
+            .state(UPDATED_STATE);
 
         restCompanyMockMvc
             .perform(
@@ -503,6 +515,7 @@ class CompanyResourceIT {
         assertThat(testCompany.getAdressLine2()).isEqualTo(UPDATED_ADRESS_LINE_2);
         assertThat(testCompany.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testCompany.getCountry()).isEqualTo(UPDATED_COUNTRY);
+        assertThat(testCompany.getState()).isEqualTo(UPDATED_STATE);
     }
 
     @Test

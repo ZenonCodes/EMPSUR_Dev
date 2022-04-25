@@ -71,6 +71,9 @@ public class Employee implements Serializable {
     @Column(name = "license_number")
     private String licenseNumber;
 
+    @Column(name = "state")
+    private String state;
+
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
@@ -250,6 +253,19 @@ public class Employee implements Serializable {
         this.licenseNumber = licenseNumber;
     }
 
+    public String getState() {
+        return this.state;
+    }
+
+    public Employee state(String state) {
+        this.setState(state);
+        return this;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public User getUser() {
         return this.user;
     }
@@ -374,6 +390,7 @@ public class Employee implements Serializable {
             ", city='" + getCity() + "'" +
             ", country='" + getCountry() + "'" +
             ", licenseNumber='" + getLicenseNumber() + "'" +
+            ", state='" + getState() + "'" +
             "}";
     }
 }

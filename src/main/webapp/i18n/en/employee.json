@@ -29,6 +29,7 @@
       "city": "City",
       "country": "Country",
       "licenseNumber": "License Number",
+      "state": "State",
       "user": "User",
       "documentation": "Documentation",
       "record": "Record",

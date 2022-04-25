@@ -19,7 +19,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -57,7 +56,6 @@ public class DocumentationResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/documentations")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Documentation> createDocumentation(@Valid @RequestBody Documentation documentation) throws URISyntaxException {
         log.debug("REST request to save Documentation : {}", documentation);
         if (documentation.getId() != null) {
@@ -183,7 +181,6 @@ public class DocumentationResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/documentations/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteDocumentation(@PathVariable Long id) {
         log.debug("REST request to delete Documentation : {}", id);
         documentationService.delete(id);

@@ -73,6 +73,9 @@ class EmployeeResourceIT {
     private static final String DEFAULT_LICENSE_NUMBER = "AAAAAAAAAA";
     private static final String UPDATED_LICENSE_NUMBER = "BBBBBBBBBB";
 
+    private static final String DEFAULT_STATE = "AAAAAAAAAA";
+    private static final String UPDATED_STATE = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/employees";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -114,7 +117,8 @@ class EmployeeResourceIT {
             .addressLine2(DEFAULT_ADDRESS_LINE_2)
             .city(DEFAULT_CITY)
             .country(DEFAULT_COUNTRY)
-            .licenseNumber(DEFAULT_LICENSE_NUMBER);
+            .licenseNumber(DEFAULT_LICENSE_NUMBER)
+            .state(DEFAULT_STATE);
         return employee;
     }
 
@@ -136,7 +140,8 @@ class EmployeeResourceIT {
             .addressLine2(UPDATED_ADDRESS_LINE_2)
             .city(UPDATED_CITY)
             .country(UPDATED_COUNTRY)
-            .licenseNumber(UPDATED_LICENSE_NUMBER);
+            .licenseNumber(UPDATED_LICENSE_NUMBER)
+            .state(UPDATED_STATE);
         return employee;
     }
 
@@ -169,6 +174,7 @@ class EmployeeResourceIT {
         assertThat(testEmployee.getCity()).isEqualTo(DEFAULT_CITY);
         assertThat(testEmployee.getCountry()).isEqualTo(DEFAULT_COUNTRY);
         assertThat(testEmployee.getLicenseNumber()).isEqualTo(DEFAULT_LICENSE_NUMBER);
+        assertThat(testEmployee.getState()).isEqualTo(DEFAULT_STATE);
     }
 
     @Test
@@ -364,7 +370,8 @@ class EmployeeResourceIT {
             .andExpect(jsonPath("$.[*].addressLine2").value(hasItem(DEFAULT_ADDRESS_LINE_2)))
             .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY)))
             .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)))
-            .andExpect(jsonPath("$.[*].licenseNumber").value(hasItem(DEFAULT_LICENSE_NUMBER)));
+            .andExpect(jsonPath("$.[*].licenseNumber").value(hasItem(DEFAULT_LICENSE_NUMBER)))
+            .andExpect(jsonPath("$.[*].state").value(hasItem(DEFAULT_STATE)));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -407,7 +414,8 @@ class EmployeeResourceIT {
             .andExpect(jsonPath("$.addressLine2").value(DEFAULT_ADDRESS_LINE_2))
             .andExpect(jsonPath("$.city").value(DEFAULT_CITY))
             .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY))
-            .andExpect(jsonPath("$.licenseNumber").value(DEFAULT_LICENSE_NUMBER));
+            .andExpect(jsonPath("$.licenseNumber").value(DEFAULT_LICENSE_NUMBER))
+            .andExpect(jsonPath("$.state").value(DEFAULT_STATE));
     }
 
     @Test
@@ -440,7 +448,8 @@ class EmployeeResourceIT {
             .addressLine2(UPDATED_ADDRESS_LINE_2)
             .city(UPDATED_CITY)
             .country(UPDATED_COUNTRY)
-            .licenseNumber(UPDATED_LICENSE_NUMBER);
+            .licenseNumber(UPDATED_LICENSE_NUMBER)
+            .state(UPDATED_STATE);
 
         restEmployeeMockMvc
             .perform(
@@ -465,6 +474,7 @@ class EmployeeResourceIT {
         assertThat(testEmployee.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testEmployee.getCountry()).isEqualTo(UPDATED_COUNTRY);
         assertThat(testEmployee.getLicenseNumber()).isEqualTo(UPDATED_LICENSE_NUMBER);
+        assertThat(testEmployee.getState()).isEqualTo(UPDATED_STATE);
     }
 
     @Test
@@ -566,6 +576,7 @@ class EmployeeResourceIT {
         assertThat(testEmployee.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testEmployee.getCountry()).isEqualTo(UPDATED_COUNTRY);
         assertThat(testEmployee.getLicenseNumber()).isEqualTo(DEFAULT_LICENSE_NUMBER);
+        assertThat(testEmployee.getState()).isEqualTo(DEFAULT_STATE);
     }
 
     @Test
@@ -591,7 +602,8 @@ class EmployeeResourceIT {
             .addressLine2(UPDATED_ADDRESS_LINE_2)
             .city(UPDATED_CITY)
             .country(UPDATED_COUNTRY)
-            .licenseNumber(UPDATED_LICENSE_NUMBER);
+            .licenseNumber(UPDATED_LICENSE_NUMBER)
+            .state(UPDATED_STATE);
 
         restEmployeeMockMvc
             .perform(
@@ -616,6 +628,7 @@ class EmployeeResourceIT {
         assertThat(testEmployee.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testEmployee.getCountry()).isEqualTo(UPDATED_COUNTRY);
         assertThat(testEmployee.getLicenseNumber()).isEqualTo(UPDATED_LICENSE_NUMBER);
+        assertThat(testEmployee.getState()).isEqualTo(UPDATED_STATE);
     }
 
     @Test

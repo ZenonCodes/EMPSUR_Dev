@@ -19,6 +19,7 @@ export interface IEmployee {
   city?: string;
   country?: string;
   licenseNumber?: string | null;
+  state?: string | null;
   user?: IUser | null;
   documentations?: IDocumentation[] | null;
   record?: IRecord | null;
@@ -40,6 +41,7 @@ export class Employee implements IEmployee {
     public city?: string,
     public country?: string,
     public licenseNumber?: string | null,
+    public state?: string | null,
     public user?: IUser | null,
     public documentations?: IDocumentation[] | null,
     public record?: IRecord | null,

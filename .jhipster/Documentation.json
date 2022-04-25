@@ -19,8 +19,7 @@
     {
       "fieldName": "attachment",
       "fieldType": "byte[]",
-      "fieldTypeBlobContent": "any",
-      "fieldValidateRules": ["required"]
+      "fieldTypeBlobContent": "any"
     },
     {
       "fieldName": "description",
