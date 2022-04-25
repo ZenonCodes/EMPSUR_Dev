@@ -60,6 +60,7 @@ public class Documentation implements Serializable {
     @Column(name = "requested")
     private LocalDate requested;
 
+    //Store files in directories
     @ManyToMany
     @JoinTable(
         name = "rel_documentation__tag",
