@@ -7,7 +7,7 @@
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
         <span jhiTranslate="empsurApp.documentation.home.refreshListLabel">Refresh List</span>
       </button>
-
+<div **jhiHasAnyAuthority="'ROLE_ADMIN'">
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
@@ -15,8 +15,9 @@
         [routerLink]="['/documentation/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="empsurApp.documentation.home.createLabel"> Create a new Documentation </span>
+        <span  jhiTranslate="empsurApp.documentation.home.createLabel"> Create a new Documentation </span>
       </button>
+    </div>
     </div>
   </h2>
 
