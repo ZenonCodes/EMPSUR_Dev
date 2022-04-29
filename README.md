@@ -1,3 +1,6 @@
+# EMPSUR_Dev
+![Copy of A4 - EmpSur (1)](https://user-images.githubusercontent.com/97448213/165880662-d7c0306d-8e34-4bcd-84b2-137177930bdb.png)
+
 # empsur
 
 This application was generated using JHipster 7.8.1, you can find documentation and help at [https://www.jhipster.tech](https://www.jhipster.tech).
@@ -235,5 +238,4 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
 [angular cli]: https://cli.angular.io/
-# EMPSUR_Dev
-# EMPSUR_Dev
+
